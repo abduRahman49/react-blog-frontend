@@ -27,7 +27,7 @@ const ArticlePage = () => {
         if(isLoading) {
             loadArticleInfo();
         }
-    }, [isLoading, user])
+    }, [isLoading, user, articleId])
     
     const article = articles.find(article => article.name === articleId);
 
