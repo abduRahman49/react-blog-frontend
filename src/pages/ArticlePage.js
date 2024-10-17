@@ -18,7 +18,7 @@ const ArticlePage = () => {
         const loadArticleInfo = async () => {
             const token = user && user.getIdToken();
             const headers = token ? { authtoken: token } : {}
-            const response = await axios.get(`/api/articles/${articleId}`, {
+            const response = await axios.get(`https://react-blog-backend-rriy.onrender.com/api/articles/${articleId}`, {
                 headers
             });
             const newArticleInfo = response.data;
@@ -38,7 +38,7 @@ const ArticlePage = () => {
     const addUpvote = async () => {
         const token = user ? await user.getIdToken(): null;
         const headers = token ? { authtoken: token } : {}
-        const response = await axios.put(`/api/articles/${articleId}/upvote`, null, { headers });
+        const response = await axios.put(`https://react-blog-backend-rriy.onrender.com/api/articles/${articleId}/upvote`, null, { headers });
         const updatedArticle = response.data;
         setArticleInfo(updatedArticle);
     }
